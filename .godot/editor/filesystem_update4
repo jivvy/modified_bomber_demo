@@ -1,0 +1,4 @@
+res://lobby.tscn
+res://world.tscn
+res://player.tscn
+res://player_controls.gd

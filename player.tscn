@@ -1,0 +1,54 @@
+[gd_scene load_steps=7 format=3 uid="uid://bkjfs8vojqifd"]
+
+[ext_resource type="Script" path="res://player.gd" id="1"]
+[ext_resource type="Script" path="res://player_controls.gd" id="4_k1vfr"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_igadj"]
+radius = 0.377
+height = 1.9
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_i6r4y"]
+radius = 0.376836
+height = 1.9
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_da5nu"]
+properties/0/path = NodePath(".:synced_position")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath("label:text")
+properties/1/spawn = true
+properties/1/sync = false
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_v0ely"]
+properties/0/path = NodePath(".:motion")
+properties/0/spawn = true
+properties/0/sync = true
+properties/1/path = NodePath(".:bombing")
+properties/1/spawn = true
+properties/1/sync = true
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1")
+
+[node name="Mesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_igadj")
+
+[node name="Head" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.721542, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_i6r4y")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_da5nu")
+
+[node name="Inputs" type="Node" parent="."]
+script = ExtResource("4_k1vfr")
+
+[node name="InputsSync" type="MultiplayerSynchronizer" parent="Inputs"]
+replication_config = SubResource("SceneReplicationConfig_v0ely")
+
+[node name="PlayerName" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.16385, 0)
+billboard = 2
+text = "Unknown Player"

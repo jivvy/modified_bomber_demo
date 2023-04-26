@@ -1,0 +1,12 @@
+2a60927148abd1d33b818b535e306557
+::res://::1682478782
+gamestate.gd::GDScript::-1::1682469348::0::1::::<>Node<>::
+lobby.gd::GDScript::-1::1682469348::0::1::::<>Control<>::
+lobby.tscn::PackedScene::646352900561825470::1682478746::0::1::::<><>::res://lobby.gd
+montserrat.otf::FontFile::728846093498231022::1682469348::1682469428::1::::<><>::
+player.gd::GDScript::-1::1682478504::0::1::::<>CharacterBody3D<>::
+player.tscn::PackedScene::3107226015474292061::1682478746::0::1::::<><>::res://player.gd<>res://player_controls.gd
+player_controls.gd::GDScript::-1::1682478487::0::1::::<>Node<>::
+README.md::TextFile::-1::1682469348::0::1::::<><>::
+score.gd::GDScript::-1::1682478241::0::1::::<>HBoxContainer<>::
+world.tscn::PackedScene::4129113451830122427::1682478776::0::1::::<><>::res://score.gd<>uid://knb8u535cfkw
